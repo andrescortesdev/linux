@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Glosario completo de conceptos y siglas de desarrollo seguro para estudiar LFD121." />
+  <title>Glosario · LFD121</title>
+  <link rel="stylesheet" href="styles.css?v=9" />
+</head>
+<body class="docs-page glossary-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar docs-sidebar">
+      <a class="brand" href="docs.html"><span class="brand-mark">L</span><span><strong>LFD121</strong><small>Secure Software</small></span></a>
+      <nav class="site-nav" aria-label="Secciones del sitio">
+        <a href="docs.html">Documentación</a>
+        <a href="index.html">Pruebas</a>
+        <a href="glosario.html" aria-current="page">Glosario</a>
+      </nav>
+      <div class="sidebar-foot"><span class="status-dot"></span> Consulta de conceptos y siglas</div>
+    </aside>
+    <main class="main docs-main" id="contenido">
+      <header class="topbar"><span class="eyebrow">REPASO RÁPIDO</span><a class="docs-text-link" href="docs.html">Volver a las diapositivas →</a></header>
+      <section class="docs-glossary" aria-labelledby="glosario-titulo">
+        <p class="kicker">DOCUMENTACIÓN LFD121</p>
+        <h1 id="glosario-titulo">Glosario de conceptos y siglas</h1>
+        <p>Consulta el significado de los términos que aparecen en las diapositivas y las pruebas.</p>
+        <dl>
+          <div><dt>Activo</dt><dd>Recurso con valor para una organización que necesita protección.</dd></div>
+          <div><dt>Amenaza</dt><dd>Evento o agente que puede producir un impacto adverso.</dd></div>
+          <div><dt>Vulnerabilidad</dt><dd>Debilidad que puede aprovecharse para causar daño.</dd></div>
+          <div><dt>Riesgo</dt><dd>Valoración de la probabilidad y las consecuencias de un escenario adverso.</dd></div>
+          <div><dt>CIA</dt><dd>Confidencialidad, integridad y disponibilidad: propiedades fundamentales de protección.</dd></div>
+          <div><dt>Autenticidad</dt><dd>Confianza verificable en la identidad o procedencia de una entidad o dato.</dd></div>
+          <div><dt>No repudio</dt><dd>Evidencia que permite atribuir una acción y tratar su posible negación.</dd></div>
+          <div><dt>SSDLC</dt><dd>Ciclo de desarrollo de software que integra seguridad desde requisitos hasta operación.</dd></div>
+          <div><dt>SCA</dt><dd>Análisis de componentes y dependencias para identificar riesgos del software incorporado.</dd></div>
+          <div><dt>SBOM</dt><dd>Inventario de componentes y versiones que forman parte de un producto.</dd></div>
+          <div><dt>Typosquatting</dt><dd>Uso de nombres similares a los legítimos para engañar a quien instala un paquete.</dd></div>
+          <div><dt>Allowlist</dt><dd>Conjunto explícito de valores u operaciones permitidos.</dd></div>
+          <div><dt>SQL parametrizado</dt><dd>Consulta que separa su estructura de los valores suministrados como datos.</dd></div>
+          <div><dt>Path traversal</dt><dd>Manipulación de una ruta para intentar acceder fuera del directorio permitido.</dd></div>
+          <div><dt>ReDoS</dt><dd>Denegación de servicio causada por procesamiento excesivamente costoso de una expresión regular.</dd></div>
+          <div><dt>Autenticación</dt><dd>Comprobación de la identidad de una entidad.</dd></div>
+          <div><dt>Autorización</dt><dd>Decisión sobre los recursos y acciones que una entidad puede utilizar.</dd></div>
+          <div><dt>HttpOnly</dt><dd>Atributo de cookie que impide su lectura directa desde JavaScript.</dd></div>
+          <div><dt>Secure</dt><dd>Atributo de cookie que restringe su envío a conexiones HTTPS.</dd></div>
+          <div><dt>SameSite</dt><dd>Atributo de cookie que controla su envío en determinados contextos entre sitios.</dd></div>
+          <div><dt>CSRF</dt><dd>Abuso del contexto autenticado del navegador para provocar una acción no deseada.</dd></div>
+          <div><dt>CORS</dt><dd>Política del navegador sobre ciertas interacciones entre orígenes; no sustituye autorización.</dd></div>
+          <div><dt>TLS / HTTPS</dt><dd>Protección del canal de comunicación; HTTPS utiliza TLS para tráfico HTTP.</dd></div>
+          <div><dt>XSS</dt><dd>Ejecución de contenido como script en el navegador al interpretar una salida insegura.</dd></div>
+          <div><dt>CSP</dt><dd>Política de seguridad de contenido que limita determinados recursos y ejecuciones del navegador.</dd></div>
+          <div><dt>SAST</dt><dd>Análisis de artefactos estáticos sin ejecutar la aplicación.</dd></div>
+          <div><dt>DAST</dt><dd>Pruebas sobre el comportamiento observable de una aplicación en ejecución.</dd></div>
+          <div><dt>Fuzzing</dt><dd>Exploración de entradas generadas o modificadas para descubrir fallos inesperados.</dd></div>
+          <div><dt>AddressSanitizer</dt><dd>Instrumentación que detecta ciertos errores de memoria durante la ejecución.</dd></div>
+          <div><dt>DFD</dt><dd>Diagrama de flujo de datos: representa procesos, entidades, almacenes y movimientos de información.</dd></div>
+          <div><dt>STRIDE</dt><dd>Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service y Elevation of Privilege.</dd></div>
+          <div><dt>Hash criptográfico</dt><dd>Resumen calculado sobre una entrada, con propiedades de resistencia adecuadas al uso.</dd></div>
+          <div><dt>AES</dt><dd>Algoritmo de cifrado simétrico por bloques que debe emplearse dentro de un esquema seguro.</dd></div>
+          <div><dt>Firma digital</dt><dd>Mecanismo que vincula un contenido a una clave de firma y permite verificar su integridad y procedencia según la confianza en esa clave.</dd></div>
+          <div><dt>CSPRNG</dt><dd>Generador de valores aleatorios impredecibles adecuado para usos criptográficos.</dd></div>
+        </dl>
+      </section>
+      <footer>Developing Secure Software · LFD121 <span>Comprende. Recuerda. Avanza.</span></footer>
+    </main>
+  </div>
+</body>
+</html>

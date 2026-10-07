@@ -1,0 +1,1456 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aprende desarrollo seguro en 100 diapositivas breves: significado, puntos para recordar y ejemplos opcionales antes de hacer la prueba LFD121." />
+  <title>Lectura por diapositivas · LFD121</title>
+  <link rel="stylesheet" href="styles.css?v=9" />
+  <script src="docs.js?v=2" defer></script>
+</head>
+<body class="docs-page slides-page">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar docs-sidebar">
+      <a class="brand" href="docs.html"><span class="brand-mark">L</span><span><strong>LFD121</strong><small>Secure Software</small></span></a>
+      <nav class="site-nav" aria-label="Secciones del sitio"><a href="docs.html" aria-current="page">Documentación</a><a href="index.html">Pruebas</a></nav>
+      <nav class="docs-nav" aria-label="Referencias de estudio">
+        <a href="glosario.html">Glosario</a>
+      </nav>
+      <div class="sidebar-foot"><span class="status-dot"></span> Retoma donde te quedaste</div>
+    </aside>
+    <main class="main docs-main slides-main" id="contenido">
+      <header class="topbar"><span class="eyebrow">APRENDE A TU RITMO</span><a class="docs-text-link" href="index.html">Ir a las pruebas →</a></header>
+      <header class="reading-intro"><p class="kicker">DOCUMENTACIÓN LFD121</p><h1>Un concepto a la vez.</h1><p>Lee el significado, quédate con la idea clave y avanza.</p></header>
+      <div class="reading-toolbar">
+        <div class="reading-topic"><label for="readingModule">Tema</label><select id="readingModule">
+          <option value="0">Fundamentos de seguridad</option>
+          <option value="1">Requisitos y diseño seguro</option>
+          <option value="2">Reutilización segura</option>
+          <option value="3">Validación de entradas</option>
+          <option value="4">Procesamiento seguro de datos</option>
+          <option value="5">Comandos y archivos</option>
+          <option value="6">Salidas, errores y logs</option>
+          <option value="7">Verificación y pruebas</option>
+          <option value="8">Threat Modeling</option>
+          <option value="9">Criptografía y examen final</option>
+        </select></div>
+        <span class="reading-counter" id="readingCounter" aria-live="polite" aria-atomic="true">Diapositiva 1 de 100</span>
+      </div>
+      <div class="reading-progress" role="progressbar" aria-label="Posición de lectura" aria-valuemin="1" aria-valuemax="100" aria-valuenow="1" id="readingProgress"><span id="readingProgressBar"></span></div>
+      <section class="reading-stage" id="readingStage" aria-label="Diapositivas de estudio">
+        <article class="lesson-slide" id="concepto-1" data-module="0" aria-labelledby="slide-title-1">
+          <header class="lesson-head"><span id="modulo-1" class="module-anchor" aria-hidden="true"></span><p class="kicker">Fundamentos de seguridad · CONCEPTO 1 DE 10</p><h2 id="slide-title-1" tabindex="-1">Activos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Un activo puede ser información, software, hardware, una identidad o cualquier recurso con valor para la organización. Su valor justifica los controles de protección.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un activo es lo que proteges; una amenaza puede dañarlo y una vulnerabilidad facilita ese daño.</li><li>Identifica qué perderías si ese activo resulta comprometido.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>En una tienda en línea, la base de clientes, las credenciales y el servicio de pagos son activos que necesitan protección. Si se exponen, pueden causar fraude y pérdida de confianza.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>La seguridad comienza por entender qué tiene valor y qué puede dañarlo. Este módulo distingue activos, amenazas, vulnerabilidades y riesgos, y explica cómo la confidencialidad, la integridad y la disponibilidad guían las decisiones de protección. También aborda autenticidad, no repudio, inventario y clasificación para que puedas relacionar cada control con una necesidad concreta.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Distinguir lo que se protege de los escenarios y debilidades que lo afectan.</li><li>Relacionar incidentes con confidencialidad, integridad y disponibilidad.</li><li>Priorizar activos según su valor, responsables y dependencias.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=1#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-2" data-module="0" aria-labelledby="slide-title-2" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 2 DE 10</p><h2 id="slide-title-2" tabindex="-1">Riesgo</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El riesgo se estima considerando la probabilidad de que ocurra un evento y el impacto que tendría. Su importancia depende del impacto y contexto.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>No confundas riesgo con vulnerabilidad: el riesgo incorpora la probabilidad y las consecuencias en un contexto concreto.</li><li>La debilidad aislada no describe el riesgo completo.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una interrupción de pagos puede ser poco frecuente, pero su impacto comercial puede justificar controles y respaldos. Después compara ese impacto con el coste de las medidas.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=2#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-3" data-module="0" aria-labelledby="slide-title-3" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 3 DE 10</p><h2 id="slide-title-3" tabindex="-1">Confidencialidad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La confidencialidad limita el acceso a quienes tienen autorización. Un permiso delimita la lectura legítima.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Cifrar ayuda a proteger la confidencialidad, pero también necesitas controlar quién puede acceder y qué puede leer.</li><li>Revisa copias, exportaciones y permisos sobre los respaldos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Solo el personal autorizado debería poder consultar los expedientes de los clientes, incluso si conoce su ubicación. Una cuenta de otro departamento debería recibir una denegación.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=3#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-4" data-module="0" aria-labelledby="slide-title-4" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 4 DE 10</p><h2 id="slide-title-4" tabindex="-1">Integridad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La integridad exige que los datos sean exactos y no sufran modificaciones indebidas. Un cambio puede invalidar el significado original.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Integridad significa evitar o detectar modificaciones indebidas; disponibilidad significa poder acceder cuando se necesita.</li><li>Identifica quién modificó el dato y cuándo.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Cambiar el importe de una factura sin autorización compromete su integridad aunque el sistema siga disponible. Compara el importe original con el historial de modificaciones.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=4#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-5" data-module="0" aria-labelledby="slide-title-5" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 5 DE 10</p><h2 id="slide-title-5" tabindex="-1">Disponibilidad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La disponibilidad se ocupa del acceso oportuno y confiable a servicios y datos. La continuidad exige recursos y recuperación efectiva.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Respaldos, redundancia y recuperación ayudan a la disponibilidad; deben probarse para comprobar que realmente funcionan.</li><li>Define interrupciones y pérdidas tolerables para el servicio.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un servicio de reservas necesita seguir respondiendo ante fallos de un servidor o aumentos de tráfico. Una réplica puede atender solicitudes mientras se recupera el servidor.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=5#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-6" data-module="0" aria-labelledby="slide-title-6" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 6 DE 10</p><h2 id="slide-title-6" tabindex="-1">No repudio</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Firmas, registros confiables y controles de identidad pueden aportar evidencia de una acción. La evidencia protegida permite atribuir acciones verificables.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La calidad de la evidencia depende de proteger las claves, verificar identidades y evitar modificaciones de los registros.</li><li>Compartir cuentas dificulta atribuir una acción individual.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una aprobación firmada y registrada con una identidad verificada aporta evidencia sobre quién autorizó una operación. Conserva el contenido aprobado y la fecha junto a la firma.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=6#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-7" data-module="0" aria-labelledby="slide-title-7" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 7 DE 10</p><h2 id="slide-title-7" tabindex="-1">Inventario de activos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El contexto del activo permite priorizar controles con base en el impacto real. El contexto permite priorizar qué proteger primero.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un inventario útil relaciona cada activo con su dueño y su impacto, no solo con una dirección o un nombre.</li><li>Las dependencias pueden amplificar un fallo inicialmente pequeño.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Al inventariar una base de pagos, registra su responsable, los servicios que la usan y el impacto de perderla. Incluye cómo se restauraría y cuánto tardaría esa recuperación.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=7#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-8" data-module="0" aria-labelledby="slide-title-8" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 8 DE 10</p><h2 id="slide-title-8" tabindex="-1">Amenazas y vulnerabilidades</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Una amenaza puede aprovechar una vulnerabilidad para producir un impacto. La debilidad facilita materializar una amenaza.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La amenaza describe el posible daño o su agente; la vulnerabilidad describe la debilidad que puede aprovechar.</li><li>Un control trata debilidades o reduce sus consecuencias.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un atacante que intenta robar datos es una amenaza; una consulta SQL construida sin parámetros puede ser una vulnerabilidad. Parametrizar la consulta reduce esa vía concreta de explotación.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=8#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-9" data-module="0" aria-labelledby="slide-title-9" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 9 DE 10</p><h2 id="slide-title-9" tabindex="-1">Autenticidad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La autenticidad ayuda a confiar en el origen o identidad de una entidad. La identidad del origen requiere verificación adicional.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un dato íntegro no necesariamente procede de quien crees: autenticidad e integridad son propiedades relacionadas, pero distintas.</li><li>Verifica al firmante, no únicamente su firma.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Verificar la firma de una actualización ayuda a comprobar su procedencia, según la confianza en la clave del firmante. Una firma de un desconocido no acredita al publicador esperado.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=9#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-10" data-module="0" aria-labelledby="slide-title-10" hidden>
+          <header class="lesson-head"><p class="kicker">Fundamentos de seguridad · CONCEPTO 10 DE 10</p><h2 id="slide-title-10" tabindex="-1">Clasificación de activos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La clasificación orienta decisiones proporcionales de protección, retención y acceso. El impacto determina la protección necesaria.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Clasificar permite asignar controles proporcionales a la sensibilidad, el valor y las consecuencias de exposición.</li><li>Reclasifica cuando cambie el contenido o su uso.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un catálogo público y una tabla de contraseñas no deberían recibir las mismas reglas de acceso y retención. La tabla sensible requiere acceso restringido incluso para personal interno.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=10#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-11" data-module="1" aria-labelledby="slide-title-11" hidden>
+          <header class="lesson-head"><span id="modulo-2" class="module-anchor" aria-hidden="true"></span><p class="kicker">Requisitos y diseño seguro · CONCEPTO 1 DE 10</p><h2 id="slide-title-11" tabindex="-1">Requisitos de seguridad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Deben expresarse de forma verificable, por ejemplo: “el sistema bloqueará la sesión tras N intentos”. Las pruebas permiten demostrar su cumplimiento.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Transforma objetivos como “proteger los datos” en condiciones observables que permitan aprobar o rechazar una prueba.</li><li>Incluye rechazos, no únicamente los accesos permitidos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un requisito concreto puede exigir que los usuarios solo consulten sus propios pedidos y que esto se pruebe automáticamente. Prueba también que cambiar el identificador no permita consultar pedidos ajenos.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>Un producto seguro necesita requisitos verificables y decisiones de diseño que reduzcan sus riesgos desde el principio. Aquí estudiarás el ciclo de desarrollo seguro, el mínimo privilegio, la defensa en profundidad, la seguridad por defecto y la mediación completa. La meta es conectar cada principio con comportamientos que se puedan comprobar durante el desarrollo y la operación.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Convertir objetivos de seguridad en requisitos y criterios de aceptación.</li><li>Aplicar controles de acceso y limitar la superficie de ataque.</li><li>Evaluar cómo la arquitectura distribuye confianza, permisos y consecuencias.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=11#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-12" data-module="1" aria-labelledby="slide-title-12" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 2 DE 10</p><h2 id="slide-title-12" tabindex="-1">Desarrollo seguro: SSDLC</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Incorporar seguridad temprano reduce el coste de corregir defectos y permite decisiones de arquitectura informadas. Cada fase introduce o reduce riesgos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La seguridad atraviesa requisitos, diseño, implementación, pruebas, entrega y operación; no es una revisión final aislada.</li><li>Corregir diseños temprano evita cambios posteriores costosos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Durante el diseño de un sistema de pagos ya se deben identificar los datos sensibles y sus fronteras de confianza. Esto permite decidir antes dónde cifrar y restringir el acceso.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=12#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-13" data-module="1" aria-labelledby="slide-title-13" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 3 DE 10</p><h2 id="slide-title-13" tabindex="-1">Mínimo privilegio</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Limitar privilegios reduce el alcance de una explotación o de un error. Menos capacidades limitan daños tras un compromiso.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Asigna permisos por función y revisa también cuentas técnicas, servicios y tareas automáticas.</li><li>Reduce permisos cuando una función deje de necesitarlos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>El proceso que genera reportes puede tener acceso de lectura sin permiso para eliminar tablas de la base de datos. Si esa cuenta es robada, no debería permitir borrar registros.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=13#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-14" data-module="1" aria-labelledby="slide-title-14" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 4 DE 10</p><h2 id="slide-title-14" tabindex="-1">Defensa en profundidad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Varias capas reducen la posibilidad de que un fallo único comprometa todo el sistema. Las barreras adicionales pueden contener un fallo.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Cada capa debe aportar un control real: varias barreras reducen la dependencia de una sola defensa.</li><li>Comprueba que las capas no compartan el mismo fallo.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una API puede combinar autorización, validación de entradas, consultas parametrizadas y monitoreo de actividad. Si falla la validación, la parametrización todavía separa datos y SQL.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=14#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-15" data-module="1" aria-labelledby="slide-title-15" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 5 DE 10</p><h2 id="slide-title-15" tabindex="-1">Seguro por defecto</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los valores predeterminados no deberían dejar expuesto al usuario que no cambió la configuración. Reduce exposición antes de personalizar la configuración.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El usuario que conserva la configuración inicial debe recibir una protección razonable sin activar opciones adicionales.</li><li>Habilita excepciones de forma explícita y controlada.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un panel administrativo puede quedar deshabilitado o restringido hasta que su acceso se configure explícitamente. Así una instalación nueva no expone públicamente funciones sensibles.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=15#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-16" data-module="1" aria-labelledby="slide-title-16" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 6 DE 10</p><h2 id="slide-title-16" tabindex="-1">Mediación completa</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Cada solicitud debe pasar por el control de autorización correspondiente. Los permisos cambian entre solicitudes sucesivas.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Una autenticación previa no autoriza automáticamente todos los recursos ni todas las acciones posteriores.</li><li>Comprueba cada recurso aunque la sesión siga válida.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Aunque un usuario haya iniciado sesión, cada descarga de un documento debe comprobar su permiso sobre ese documento. Si revocas el acceso, la siguiente descarga debe ser rechazada.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=16#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-17" data-module="1" aria-labelledby="slide-title-17" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 7 DE 10</p><h2 id="slide-title-17" tabindex="-1">Diseño abierto</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La seguridad debería resistir el análisis público; los secretos deben estar en las claves, no en el diseño. La revisión pública revela supuestos incorrectos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Ocultar detalles internos no sustituye un mecanismo que resista análisis; las claves sí requieren protección.</li><li>Distingue diseño público de secretos que requieren protección.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un protocolo puede ser público mientras mantiene protegidas las claves que permiten autenticar y cifrar sus mensajes. Un análisis del protocolo puede descubrir defectos sin revelar las claves.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=17#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-18" data-module="1" aria-labelledby="slide-title-18" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 8 DE 10</p><h2 id="slide-title-18" tabindex="-1">Superficie de ataque</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Menos funcionalidad expuesta implica menos oportunidades de abuso. Los componentes innecesarios pueden contener defectos explotables.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Revisa funciones, puertos, privilegios y dependencias: cada elemento expuesto añade algo que proteger.</li><li>Menos componentes facilitan revisión, actualización y monitoreo.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Eliminar un endpoint de depuración que no se usa evita exponer una función innecesaria en producción. La eliminación también evita mantener sus permisos y dependencias asociadas.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=18#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-19" data-module="1" aria-labelledby="slide-title-19" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 9 DE 10</p><h2 id="slide-title-19" tabindex="-1">Criterios de aceptación</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los criterios concretos permiten probar y demostrar que el requisito se cumple. Una condición medible permite verificar su cumplimiento.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Define el contexto, la acción y el resultado esperado; así el requisito puede convertirse en una prueba reproducible.</li><li>Verifica el resultado, no solo el mensaje mostrado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una prueba puede verificar que una cuenta sin permiso recibe una denegación al intentar eliminar un pedido. Comprueba además que el pedido siga existiendo después del rechazo.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=19#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-20" data-module="1" aria-labelledby="slide-title-20" hidden>
+          <header class="lesson-head"><p class="kicker">Requisitos y diseño seguro · CONCEPTO 10 DE 10</p><h2 id="slide-title-20" tabindex="-1">Arquitectura segura</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Separar servicios, elegir un mecanismo de identidad o definir flujos de datos son decisiones arquitectónicas. La estructura condiciona la propagación de fallos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Evalúa cómo cada decisión modifica flujos, confianza, privilegios y alcance de una posible explotación.</li><li>Documenta los supuestos de cada frontera de confianza.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Separar el servicio de pagos del sitio público cambia los accesos posibles y las consecuencias de comprometer un componente. Un compromiso del sitio no debería dar acceso directo a pagos.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=20#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-21" data-module="2" aria-labelledby="slide-title-21" hidden>
+          <header class="lesson-head"><span id="modulo-3" class="module-anchor" aria-hidden="true"></span><p class="kicker">Reutilización segura · CONCEPTO 1 DE 10</p><h2 id="slide-title-21" tabindex="-1">Dependencias transitivas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El grafo de dependencias incluye componentes directos y los que estos incorporan. También puede introducir vulnerabilidades en el producto.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Revisar solo las dependencias directas deja fuera parte del código incorporado al producto.</li><li>Inspecciona el árbol y sus versiones realmente incorporadas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Si tu aplicación utiliza A y A necesita B, B forma parte del producto aunque no la hayas declarado directamente. Actualizar A puede cambiar B sin modificar tu código directamente.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>El software de terceros también forma parte de la seguridad del producto. Este módulo explica cómo identificar dependencias directas y transitivas, qué aportan SCA y SBOM, y por qué importan la procedencia, las versiones, las firmas y las licencias. Estudiarás además cómo actualizar de forma controlada y cómo evitar incorporar componentes que aparentan ser legítimos.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Inventariar los componentes que realmente se incorporan al producto.</li><li>Distinguir integridad y autenticidad de ausencia de vulnerabilidades.</li><li>Gestionar actualizaciones, procedencia y obligaciones de distribución.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=21#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-22" data-module="2" aria-labelledby="slide-title-22" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 2 DE 10</p><h2 id="slide-title-22" tabindex="-1">Inventario de componentes: SBOM</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Un SBOM mejora la visibilidad y permite responder más rápido ante vulnerabilidades en componentes. Relaciona hallazgos con componentes y productos afectados.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El inventario debe reflejar lo que realmente se entrega y actualizarse cuando cambian los componentes.</li><li>Un inventario desactualizado puede ocultar componentes de producción.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Ante una vulnerabilidad en una biblioteca, el SBOM permite localizar qué productos incluyen la versión afectada. El equipo puede priorizar actualizaciones y avisar a responsables concretos.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=22#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-23" data-module="2" aria-labelledby="slide-title-23" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 3 DE 10</p><h2 id="slide-title-23" tabindex="-1">Análisis de dependencias: SCA</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>SCA ayuda a identificar versiones vulnerables, licencias y riesgos del software de terceros. Su detección depende del conocimiento disponible.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un análisis de dependencias complementa las pruebas de la aplicación; no demuestra ausencia de problemas de lógica.</li><li>Investiga aplicabilidad e impacto antes de cerrar alertas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una revisión SCA puede detectar que una biblioteca instalada coincide con una versión vulnerable conocida. Luego determina si esa dependencia se utiliza en funciones expuestas.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=23#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-24" data-module="2" aria-labelledby="slide-title-24" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 4 DE 10</p><h2 id="slide-title-24" tabindex="-1">Typosquatting</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los nombres similares explotan errores tipográficos y hábitos de instalación. El engaño explota la similitud del nombre.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Comprueba el nombre, el publicador y la procedencia antes de incorporar un paquete.</li><li>Un nombre parecido no prueba legitimidad del paquete.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un nombre como “reqeusts” puede intentar parecerse al paquete legítimo “requests” para provocar una instalación equivocada. Revisar el publicador ayuda a distinguir ambos antes de instalar.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=24#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-25" data-module="2" aria-labelledby="slide-title-25" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 5 DE 10</p><h2 id="slide-title-25" tabindex="-1">Procedencia de paquetes</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La procedencia, reproducibilidad y verificación de integridad son controles complementarios. La confianza exige verificar los componentes incorporados.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un hash solo ayuda si el valor esperado llega por un canal confiable; procedencia e integridad se complementan.</li><li>Controla quién puede publicar y modificar componentes aprobados.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un proceso de instalación puede usar un registro aprobado y verificar que el artefacto coincide con el esperado. Rechaza la instalación si el artefacto recibido no coincide.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=25#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-26" data-module="2" aria-labelledby="slide-title-26" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 6 DE 10</p><h2 id="slide-title-26" tabindex="-1">Versiones fijadas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Conviene combinar versiones fijadas con un proceso explícito de actualización. Controla el código de cada construcción.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Reproducibilidad no significa congelar dependencias para siempre: incluye un proceso de actualización y pruebas.</li><li>Conserva información para reconstruir exactamente lo entregado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una versión fijada evita que dos construcciones descarguen silenciosamente versiones diferentes de la misma biblioteca. Así puedes reproducir un fallo con el mismo conjunto de componentes.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=26#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-27" data-module="2" aria-labelledby="slide-title-27" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 7 DE 10</p><h2 id="slide-title-27" tabindex="-1">Actualizaciones seguras</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La actualización debe ser trazable y poder revertirse si introduce regresiones. Actualizar puede introducir cambios incompatibles.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Actualizar con seguridad combina evaluación, validación y una recuperación definida si algo falla.</li><li>Planifica actualización y recuperación ante posibles fallos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Antes de actualizar una biblioteca, revisa sus cambios, ejecuta las pruebas y prepara cómo volver a la versión anterior. Valida flujos críticos en un entorno de prueba antes de desplegar.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=27#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-28" data-module="2" aria-labelledby="slide-title-28" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 8 DE 10</p><h2 id="slide-title-28" tabindex="-1">Firmas de componentes</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Una firma no demuestra ausencia de vulnerabilidades; demuestra origen/integridad según la confianza configurada. Autenticidad e integridad no garantizan seguridad total.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Una firma válida no certifica que el código esté libre de vulnerabilidades o comportamientos peligrosos.</li><li>Verifica la clave confiable y el contenido firmado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un archivo firmado puede verificarse contra una clave de confianza para detectar alteraciones desde su firma. El código firmado aún puede requerir análisis y pruebas adicionales.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=28#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-29" data-module="2" aria-labelledby="slide-title-29" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 9 DE 10</p><h2 id="slide-title-29" tabindex="-1">Dependencias directas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Las dependencias transitivas llegan a través de otras dependencias. La declaración refleja una elección del proyecto.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Distingue lo declarado por tu proyecto de lo que incorporan esos componentes; ambos niveles necesitan seguimiento.</li><li>La categoría no elimina la necesidad de revisión.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una biblioteca declarada explícitamente en el manifiesto de la aplicación es una dependencia directa. Si esa biblioteca incorpora otra, la segunda será transitiva.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=29#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-30" data-module="2" aria-labelledby="slide-title-30" hidden>
+          <header class="lesson-head"><p class="kicker">Reutilización segura · CONCEPTO 10 DE 10</p><h2 id="slide-title-30" tabindex="-1">Licencias de software</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La seguridad de la cadena de suministro incluye riesgos técnicos, operativos y legales. Distribuir componentes puede imponer obligaciones adicionales.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Una dependencia técnicamente adecuada también debe poder usarse y distribuirse conforme a sus obligaciones.</li><li>Registra obligaciones, versiones y procedencia del componente.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>La distribución de un producto puede estar condicionada por las licencias de las bibliotecas que incluye. Por ejemplo, puede exigir conservar avisos de autoría o licencia.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=30#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-31" data-module="3" aria-labelledby="slide-title-31" hidden>
+          <header class="lesson-head"><span id="modulo-4" class="module-anchor" aria-hidden="true"></span><p class="kicker">Validación de entradas · CONCEPTO 1 DE 10</p><h2 id="slide-title-31" tabindex="-1">Validación de tipo</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La validación de tipo confirma la clase de dato esperada; las demás cubren propiedades distintas. El tipo determina las operaciones válidas.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Tipo, rango, longitud y formato son comprobaciones diferentes; una sola no sustituye a las demás.</li><li>El tipo válido no garantiza un valor aceptable.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Si un campo representa una cantidad entera, aceptar texto arbitrario o un número con decimales incumple el tipo esperado. Una cantidad negativa necesitaría además una comprobación independiente de rango.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>Las entradas externas deben tratarse como datos y validarse de acuerdo con su uso. Aquí se estudian tipo, rango, formato, listas permitidas y normalización, junto con inyección SQL, inyección de comandos, traversal de rutas, deserialización insegura y ReDoS. La idea central es mantener separadas las instrucciones de los datos y controlar tanto el significado como el coste de procesar una entrada.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Distinguir validaciones de tipo, rango, longitud y formato.</li><li>Separar instrucciones y datos para evitar interpretaciones peligrosas.</li><li>Controlar destinos, estructuras y consumo de recursos de las entradas.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=31#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-32" data-module="3" aria-labelledby="slide-title-32" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 2 DE 10</p><h2 id="slide-title-32" tabindex="-1">Listas permitidas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Las listas permitidas suelen ser más robustas que intentar enumerar todas las entradas peligrosas. Los valores definidos evitan interpretaciones inesperadas.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Define lo válido y rechaza lo restante; también establece límites de tamaño y una interpretación consistente.</li><li>Mantén explícita y pequeña la lista autorizada.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un parámetro de ordenación puede aceptar únicamente “fecha” o “precio” en lugar de recibir una expresión libre. Cualquier otra cadena debería rechazarse, no convertirse en una expresión.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=32#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-33" data-module="3" aria-labelledby="slide-title-33" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 3 DE 10</p><h2 id="slide-title-33" tabindex="-1">Consultas SQL parametrizadas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El motor separa la estructura de la consulta de los datos suministrados. Los datos no se convierten en instrucciones.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Los parámetros son para valores; los identificadores dinámicos, como nombres de columnas, requieren un tratamiento controlado.</li><li>Mantén separados datos e instrucciones en cada consulta.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>En una consulta parametrizada, el nombre ingresado se envía como dato y no como una parte de la sintaxis SQL. Incluso una comilla maliciosa permanece dentro del valor del parámetro.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=33#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-34" data-module="3" aria-labelledby="slide-title-34" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 4 DE 10</p><h2 id="slide-title-34" tabindex="-1">Path traversal</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Secuencias como ../ pueden escapar de la ubicación autorizada si no se valida la ruta. El destino supera el ámbito autorizado.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Resolver una ruta no basta: comprueba que el resultado permanezca dentro de la ubicación permitida.</li><li>Comprueba directorios, permisos y enlaces cuando corresponda.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una descarga que acepta “../../configuracion” puede intentar acceder a un archivo fuera del directorio autorizado. La aplicación debe negar ese destino aunque el archivo exista.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=34#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-35" data-module="3" aria-labelledby="slide-title-35" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 5 DE 10</p><h2 id="slide-title-35" tabindex="-1">Inyección de comandos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Una API sin interpretación de shell reduce la posibilidad de que la entrada se convierta en sintaxis. Separa instrucciones ejecutables de datos externos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Evitar el shell reduce interpretación de metacaracteres; valida también qué argumentos permite el programa invocado.</li><li>Limita las opciones del programa que será invocado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>En vez de concatenar un nombre en una orden de shell, utiliza una API que reciba el programa y sus argumentos separados. Un nombre con metacaracteres no debería crear una segunda orden.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=35#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-36" data-module="3" aria-labelledby="slide-title-36" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 6 DE 10</p><h2 id="slide-title-36" tabindex="-1">Deserialización</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Debe usarse un formato seguro, tipos permitidos y límites adecuados. Reconstruir objetos puede activar lógica inesperada.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Prefiere estructuras de datos simples y tipos explícitos, con límites de profundidad, tamaño y procesamiento.</li><li>La sintaxis válida no garantiza objetos ejecutables seguros.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un formato que permite reconstruir objetos con comportamientos puede ejecutar acciones no previstas al recibir datos externos. Una lista de tipos permitidos restringe qué estructuras pueden reconstruirse.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=36#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-37" data-module="3" aria-labelledby="slide-title-37" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 7 DE 10</p><h2 id="slide-title-37" tabindex="-1">Normalización de entradas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La canonicalización evita que una validación y el uso posterior interpreten el dato de forma distinta. Interpretaciones diferentes permiten evadir comprobaciones.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Valida la representación que realmente se utilizará; evita validar una forma y ejecutar otra.</li><li>Valida conforme al uso final del dato.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Dos representaciones de una ruta pueden apuntar al mismo destino aunque sus cadenas de texto sean diferentes. Comprueba el destino después de resolver su representación canónica.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=37#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-38" data-module="3" aria-labelledby="slide-title-38" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 8 DE 10</p><h2 id="slide-title-38" tabindex="-1">Expresiones regulares y ReDoS</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Las expresiones ambiguas sobre entradas largas pueden bloquear recursos. Su coste puede crecer desproporcionadamente.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Limita las entradas y revisa el comportamiento del patrón ante casos largos y fallidos, no solo casos válidos.</li><li>Evita patrones ambiguos y limita la entrada.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un patrón con repeticiones ambiguas puede tardar mucho en rechazar una cadena especialmente construida. Mide también el tiempo de rechazo, no solo el de aceptación.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=38#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-39" data-module="3" aria-labelledby="slide-title-39" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 9 DE 10</p><h2 id="slide-title-39" tabindex="-1">Validación en el servidor</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La validación del cliente mejora UX; la del servidor protege el recurso. El cliente permite omitir sus propias comprobaciones.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El servidor debe validar cada dato que afecta a sus recursos; el cliente solo mejora la experiencia de uso.</li><li>Cada petición necesita controles aunque use el formulario.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un atacante puede enviar una petición HTTP sin pasar por el formulario y sus comprobaciones de JavaScript. El servidor debe rechazar igualmente una cantidad o permiso inválidos.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=39#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-40" data-module="3" aria-labelledby="slide-title-40" hidden>
+          <header class="lesson-head"><p class="kicker">Validación de entradas · CONCEPTO 10 DE 10</p><h2 id="slide-title-40" tabindex="-1">Límites de un parser JSON</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los límites reducen abuso de recursos y estructuras inesperadas. La sintaxis válida no controla los recursos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Que el parser acepte el formato no significa que el contenido sea razonable para tu aplicación.</li><li>Limita documentos antes de procesar entradas externas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un documento JSON muy profundo o enorme puede agotar recursos incluso cuando su sintaxis es válida. Un límite de profundidad puede rechazar anidamientos antes de procesarlos completos.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=40#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-41" data-module="4" aria-labelledby="slide-title-41" hidden>
+          <header class="lesson-head"><span id="modulo-5" class="module-anchor" aria-hidden="true"></span><p class="kicker">Procesamiento seguro de datos · CONCEPTO 1 DE 10</p><h2 id="slide-title-41" tabindex="-1">Buffer overflow</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Puede corromper memoria, provocar un fallo o permitir ejecución de código. La escritura alcanza memoria fuera del destino.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Controla los límites y usa herramientas de detección de errores de memoria durante las pruebas.</li><li>Comprueba el tamaño del destino antes de copiar.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Copiar una cadena demasiado larga en un espacio reservado más pequeño puede escribir sobre memoria de otros datos. El resultado puede ser corrupción de datos o un cierre inesperado.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>Procesar datos de forma segura requiere respetar límites de memoria y permisos de acceso. Este módulo conecta errores como buffer overflow, integer overflow y fugas de memoria con identidad, autorización y sesiones web. También explica los atributos de cookies y las funciones de CSRF y CORS, para evitar confundir controles del navegador con decisiones que corresponden al servidor.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Reconocer errores de memoria y sus consecuencias.</li><li>Diferenciar autenticación de autorización sobre recursos concretos.</li><li>Entender qué protege cada atributo de cookie y cada política web.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=41#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-42" data-module="4" aria-labelledby="slide-title-42" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 2 DE 10</p><h2 id="slide-title-42" tabindex="-1">Desbordamiento de enteros</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Las comprobaciones de rango y tipos adecuados evitan resultados inesperados. El resultado puede no representar el cálculo.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Comprueba rangos antes de las operaciones y evita asumir que un resultado aritmético siempre cabe en su tipo.</li><li>Revisa conversiones y cálculos sobre tamaños externos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>El cálculo de tamaño de una reserva puede desbordarse y producir un valor pequeño para una cantidad de datos grande. Verifica la multiplicación antes de reservar o copiar la memoria.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=42#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-43" data-module="4" aria-labelledby="slide-title-43" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 3 DE 10</p><h2 id="slide-title-43" tabindex="-1">Autenticación</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Autenticación responde “¿quién eres?”; autorización responde “¿qué puedes hacer?”. Autenticar no concede permisos sobre todo.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Identificar a una persona y concederle acceso son decisiones distintas: autenticación no sustituye autorización.</li><li>Verifica identidad y autoriza cada acción por separado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Al iniciar sesión se verifica la identidad; al abrir un expediente se decide si esa identidad tiene permiso. Una persona autenticada todavía puede tener prohibido consultar ese expediente.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=43#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-44" data-module="4" aria-labelledby="slide-title-44" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 4 DE 10</p><h2 id="slide-title-44" tabindex="-1">Autorización</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La decisión debe basarse en una política explícita y en el contexto correcto. El acceso depende de la política aplicable.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un identificador de recurso recibido del cliente no es evidencia de que el usuario pueda utilizarlo.</li><li>Autoriza en el servidor, no mediante identificadores externos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una solicitud de edición debe comprobar el usuario, el documento concreto, la acción solicitada y las condiciones aplicables. Prueba también el caso de un documento perteneciente a otro usuario.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=44#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-45" data-module="4" aria-labelledby="slide-title-45" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 5 DE 10</p><h2 id="slide-title-45" tabindex="-1">Cookies: HttpOnly</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>HttpOnly reduce el robo de cookies mediante scripts; no elimina todos los riesgos de XSS. Restringe el acceso directo desde scripts.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>HttpOnly limita una vía de robo de cookies, pero un XSS todavía puede realizar acciones dentro de la sesión.</li><li>Una cookie protegida no vuelve seguro todo el sitio.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una cookie de sesión con HttpOnly no puede leerse directamente usando document.cookie desde JavaScript. El navegador sigue enviando la cookie en las solicitudes permitidas.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=45#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-46" data-module="4" aria-labelledby="slide-title-46" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 6 DE 10</p><h2 id="slide-title-46" tabindex="-1">Cookies: Secure</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Secure protege el transporte de la cookie frente a canales no cifrados. Impide enviar esa cookie por transporte desprotegido.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Secure protege el envío; no reemplaza HttpOnly, SameSite ni los controles de sesión del servidor.</li><li>Configura caducidad e invalidación para controlar las sesiones.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una cookie con Secure no debe enviarse por una conexión HTTP ordinaria, sino por un canal HTTPS. Una petición sin HTTPS no debería transportar esa credencial.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=46#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-47" data-module="4" aria-labelledby="slide-title-47" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 7 DE 10</p><h2 id="slide-title-47" tabindex="-1">Protección contra CSRF</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>CSRF abusa de credenciales del navegador para forzar acciones no deseadas. Una sesión no demuestra intención del usuario.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Comprueba el token anti-CSRF en operaciones sensibles y define una política SameSite acorde con tus flujos.</li><li>Evita acciones sensibles activadas mediante enlaces simples.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un sitio externo puede intentar provocar una operación usando las cookies de una persona autenticada en otro sitio. El servidor debe rechazar la operación si el token no coincide.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=47#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-48" data-module="4" aria-labelledby="slide-title-48" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 8 DE 10</p><h2 id="slide-title-48" tabindex="-1">Política CORS</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>CORS es una política del navegador; no sustituye la autorización del servidor. El navegador controla lecturas entre orígenes.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>CORS no impide que clientes ajenos al navegador llamen a la API: la autorización sigue siendo necesaria.</li><li>Un origen permitido no sustituye una autorización.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una API puede permitir que una aplicación web de un origen concreto lea respuestas desde el navegador. Un cliente de línea de comandos todavía puede llamar al endpoint.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=48#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-49" data-module="4" aria-labelledby="slide-title-49" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 9 DE 10</p><h2 id="slide-title-49" tabindex="-1">Fugas de memoria</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Las fugas degradan el servicio y pueden acabar en denegación de servicio. La pérdida reduce los recursos disponibles.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Distingue una fuga de un uso legítimo creciente y verifica el consumo bajo cargas prolongadas.</li><li>Prueba cargas prolongadas, además de ejecuciones breves.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un proceso que pierde referencias a reservas de memoria puede consumir más recursos con cada petición. Observa si el consumo sigue creciendo después de finalizar las peticiones.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=49#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-50" data-module="4" aria-labelledby="slide-title-50" hidden>
+          <header class="lesson-head"><p class="kicker">Procesamiento seguro de datos · CONCEPTO 10 DE 10</p><h2 id="slide-title-50" tabindex="-1">Cookies: SameSite</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>SameSite limita el envío contextual de cookies y puede ayudar contra CSRF. El contexto determina cuándo se envía.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El comportamiento depende del valor configurado y del contexto; elige la política considerando los flujos legítimos.</li><li>Los valores SameSite no tienen el mismo comportamiento.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una cookie SameSite puede restringir su envío cuando una petición se origina en un contexto de otro sitio. Prueba navegación, formularios y flujos de inicio de sesión externos.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=50#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-51" data-module="5" aria-labelledby="slide-title-51" hidden>
+          <header class="lesson-head"><span id="modulo-6" class="module-anchor" aria-hidden="true"></span><p class="kicker">Comandos y archivos · CONCEPTO 1 DE 10</p><h2 id="slide-title-51" tabindex="-1">Invocar programas sin shell</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Separar comando y argumentos mediante una API segura es la opción preferible. El intérprete convierte metacaracteres en instrucciones.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>No trates comillas o filtros simples como garantía: separa el programa de los datos y limita las operaciones.</li><li>Prefiere operaciones explícitas y parámetros separados de la instrucción.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Si una entrada se incorpora a una cadena ejecutada por el shell, puede convertirse en parte de una segunda orden. Un separador introducido por el usuario puede alterar la orden original.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>Invocar otros programas o trabajar con archivos introduce límites de confianza adicionales. Estudiarás por qué evitar órdenes de shell construidas con entradas externas, cómo controlar rutas y temporales y qué verificar antes de ejecutar un componente. También se explica el alcance de TLS y la importancia de limitar las capacidades de los procesos que realizan estas operaciones.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Controlar programas, argumentos y operaciones que pueden ejecutarse.</li><li>Proteger rutas, nombres de archivo, temporales y permisos.</li><li>Verificar componentes y comprender las garantías del transporte.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=51#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-52" data-module="5" aria-labelledby="slide-title-52" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 2 DE 10</p><h2 id="slide-title-52" tabindex="-1">Descarga directa al intérprete</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El contenido remoto se ejecuta antes de poder inspeccionarlo y verificarlo. Impide evaluar previamente el contenido ejecutado.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Separa descarga, verificación y ejecución para poder comprobar la procedencia y la integridad.</li><li>El canal de descarga también forma parte de la confianza.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una descarga enviada directamente a un intérprete ejecuta lo recibido sin una revisión previa del artefacto completo. Conserva primero el archivo para revisarlo y validar su firma.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=52#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-53" data-module="5" aria-labelledby="slide-title-53" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 3 DE 10</p><h2 id="slide-title-53" tabindex="-1">Rutas seguras</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Resolver y comprobar el prefijo/base autorizada evita escapes de directorio. La ruta textual no garantiza autorización.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>No uses una comparación de prefijo ingenua: “/datos-extra” no pertenece a “/datos” aunque empiece igual.</li><li>Considera enlaces y permisos que puedan cambiar el destino efectivo.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una ruta normalizada puede seguir apuntando fuera de la carpeta de descargas si no se comprueba su destino. Comprueba límites de ruta completos y no únicamente sus primeros caracteres.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=53#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-54" data-module="5" aria-labelledby="slide-title-54" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 4 DE 10</p><h2 id="slide-title-54" tabindex="-1">Archivos temporales</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los temporales son recursos compartidos y deben protegerse frente a lectura, enlaces y agotamiento. Compartir recursos exige evitar accesos inesperados.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Usa mecanismos de creación segura, permisos mínimos y límites de vida y tamaño.</li><li>La limpieza debe limitarse a los archivos creados por tu proceso.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un temporal predecible y compartido puede permitir que otro proceso lea su contenido o prepare un destino inesperado. Un proceso distinto no debería leer los secretos del temporal.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=54#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-55" data-module="5" aria-labelledby="slide-title-55" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 5 DE 10</p><h2 id="slide-title-55" tabindex="-1">Protección TLS / HTTPS</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>TLS protege el transporte, pero no corrige controles de aplicación deficientes. Sus garantías corresponden al canal de comunicación.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un canal protegido puede transportar una petición maliciosa: la aplicación aún debe validar y autorizar.</li><li>TLS no decide qué puede hacer cada usuario autenticado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>TLS permite proteger la conexión entre el navegador y el servidor al verificar correctamente el certificado. Un certificado no confiable debe impedir considerar verificada esa conexión.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=55#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-56" data-module="5" aria-labelledby="slide-title-56" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 6 DE 10</p><h2 id="slide-title-56" tabindex="-1">Verificación de binarios</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La cadena de instalación debe ser verificable y reproducible. La apariencia no demuestra procedencia confiable.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La cadena de confianza incluye el artefacto y el canal por el que obtienes sus hashes, firmas o claves.</li><li>No obtengas el hash esperado del mismo origen no confiable.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>El nombre de un instalador no prueba quién lo publicó; verifica el origen y la evidencia de integridad esperada. Una descarga modificada debería fallar la comprobación antes de ejecutarse.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=56#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-57" data-module="5" aria-labelledby="slide-title-57" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 7 DE 10</p><h2 id="slide-title-57" tabindex="-1">Permisos de procesos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El mínimo privilegio limita las acciones posteriores a una explotación. Las capacidades delimitan el impacto posible.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Limitar permisos reduce lo que un atacante puede hacer después de comprometer ese proceso.</li><li>Revisa permisos de archivos, procesos, cuentas y servicios asociados.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un servicio que procesa archivos no debería poder modificar configuraciones del sistema si su tarea no lo necesita. Así el incidente no concede automáticamente control sobre todo el equipo.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=57#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-58" data-module="5" aria-labelledby="slide-title-58" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 8 DE 10</p><h2 id="slide-title-58" tabindex="-1">Nombres de archivo</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El nombre debe validarse como dato y no convertirse en una ruta controlada por el atacante. El nombre afecta selección y sobrescritura.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Controla el nombre, el destino, los permisos y el comportamiento ante colisiones; son comprobaciones separadas.</li><li>No conviertas directamente un nombre externo en una ruta confiable.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Permitir un nombre ya existente puede sobrescribir un archivo ajeno aunque el contenido cargado sea válido. Generar identificadores propios puede evitar colisiones con nombres elegidos externamente.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=58#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-59" data-module="5" aria-labelledby="slide-title-59" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 9 DE 10</p><h2 id="slide-title-59" tabindex="-1">Operaciones permitidas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Limitar las operaciones es más seguro que intentar bloquear todas las variantes peligrosas. Reduce las instrucciones accesibles desde el exterior.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Una lista de operaciones de negocio es más fácil de controlar que una interfaz a todos los comandos del sistema.</li><li>Autoriza la operación y sus argumentos como decisiones separadas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una API de mantenimiento puede permitir solo “generar reporte” y “consultar estado”, sin aceptar órdenes libres. Cada operación puede definir parámetros y permisos específicos para su función.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=59#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-60" data-module="5" aria-labelledby="slide-title-60" hidden>
+          <header class="lesson-head"><p class="kicker">Comandos y archivos · CONCEPTO 10 DE 10</p><h2 id="slide-title-60" tabindex="-1">Firmas inválidas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Una verificación fallida debe ser un fallo cerrado y visible. Continuar aceptaría contenido sin confianza demostrada.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un fallo de verificación debe detener el uso del artefacto y permitir investigar su procedencia.</li><li>No desactives la verificación para resolver un error de instalación.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Si la verificación de un paquete falla, continuar la instalación elimina la protección que aportaba la firma. Registra el fallo y evita ejecutar el componente mientras se investiga.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=60#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-61" data-module="6" aria-labelledby="slide-title-61" hidden>
+          <header class="lesson-head"><span id="modulo-7" class="module-anchor" aria-hidden="true"></span><p class="kicker">Salidas, errores y logs · CONCEPTO 1 DE 10</p><h2 id="slide-title-61" tabindex="-1">Codificación de salida</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La codificación debe corresponder al contexto donde se inserta el dato. Cada contexto interpreta caracteres de forma distinta.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La validación de entrada no reemplaza la codificación de salida; controla dónde y cómo se inserta cada dato.</li><li>Escapa cerca de la salida usando el contexto correcto.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un valor insertado en texto HTML y otro insertado dentro de un atributo necesitan tratamiento acorde con su contexto. Un valor de atributo debe permanecer como dato dentro del atributo.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>Una salida puede revelar información o convertir datos en código si se interpreta en el contexto equivocado. Este módulo aborda codificación contextual, XSS, tratamiento de errores, logging y privacidad. Aprenderás a producir respuestas útiles y registros investigables sin filtrar secretos, y a combinar controles complementarios manteniendo un comportamiento seguro ante los fallos.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Codificar salidas de acuerdo con su contexto de interpretación.</li><li>Registrar eventos útiles sin exponer secretos ni datos innecesarios.</li><li>Manejar errores y denegaciones con resultados explícitos y controlados.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=61#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-62" data-module="6" aria-labelledby="slide-title-62" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 2 DE 10</p><h2 id="slide-title-62" tabindex="-1">XSS almacenado</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El contenido persistido se ejecuta en el navegador de las víctimas al renderizarse. Persistir permite afectar a víctimas posteriores.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El origen persistente no vuelve confiable el dato: también debes protegerlo al mostrarlo.</li><li>Protege tanto las entradas almacenadas como su representación posterior.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un comentario persistido con contenido ejecutable puede afectar a cada persona que lo consulte después. Otro visitante puede ejecutar ese contenido al abrir el comentario.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=62#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-63" data-module="6" aria-labelledby="slide-title-63" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 3 DE 10</p><h2 id="slide-title-63" tabindex="-1">Errores públicos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los detalles útiles para diagnóstico deben ir a canales protegidos y controlados. Los detalles internos pueden facilitar ataques.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Da al usuario información útil sin exponer consultas, rutas, secretos ni detalles internos innecesarios.</li><li>Separa la información para usuarios de los detalles operativos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un error público puede mostrar un identificador de soporte mientras el diagnóstico detallado se guarda en un canal protegido. El soporte puede localizar el diagnóstico usando el identificador público.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=63#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-64" data-module="6" aria-labelledby="slide-title-64" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 4 DE 10</p><h2 id="slide-title-64" tabindex="-1">Logs de seguridad</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La trazabilidad requiere datos consistentes sin registrar secretos innecesarios. El contexto permite reconstruir los eventos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La trazabilidad debe permitir reconstruir el evento sin convertir los logs en un almacén de secretos.</li><li>Registra resultados y actores con tiempos consistentes y acceso restringido.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un evento de acceso denegado es más útil si identifica el actor, el recurso, la hora y el resultado. Un identificador de correlación puede relacionar eventos de la misma solicitud.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=64#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-65" data-module="6" aria-labelledby="slide-title-65" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 5 DE 10</p><h2 id="slide-title-65" tabindex="-1">Inyección en logs</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La codificación y normalización de campos evita que la entrada simule eventos. La entrada puede modificar la interpretación.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Usa campos estructurados y tratamiento seguro de los datos para preservar el significado de cada evento.</li><li>Evita que una entrada pueda aparentar otro evento independiente.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una entrada con saltos de línea puede aparentar que el log contiene un evento adicional que nunca ocurrió. El visor debe mostrar esos caracteres dentro del campo original.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=65#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-66" data-module="6" aria-labelledby="slide-title-66" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 6 DE 10</p><h2 id="slide-title-66" tabindex="-1">Secretos en registros</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los secretos deben excluirse o enmascararse; los logs también son información sensible. El registro puede exponer credenciales utilizables.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Revisa también logs de depuración, excepciones y sistemas de monitoreo: pueden capturar secretos accidentalmente.</li><li>Enmascarar no siempre basta: excluye secretos que no necesitas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Registrar un token de sesión completo puede permitir reutilizarlo a quien tenga acceso a ese registro. Un reporte compartido podría convertir esa filtración en una sesión robada.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=66#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-67" data-module="6" aria-labelledby="slide-title-67" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 7 DE 10</p><h2 id="slide-title-67" tabindex="-1">Privacidad y logging</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La minimización reduce exposición y obligaciones de protección de datos. Minimizar reduce exposición y usos innecesarios.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Define un propósito, limita los campos recopilados y establece acceso y retención apropiados.</li><li>Recopila únicamente lo necesario para una finalidad claramente definida.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Para medir fallos de autenticación normalmente no hace falta registrar el contenido completo del formulario de acceso. Un contador por resultado puede satisfacer esa necesidad sin guardar contraseñas.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=67#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-68" data-module="6" aria-labelledby="slide-title-68" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 8 DE 10</p><h2 id="slide-title-68" tabindex="-1">Excepciones y retornos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Ambos deben manejarse de forma explícita, sin ocultar fallos ni filtrar información. Ambos requieren manejar explícitamente sus resultados.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El diseño determina qué es excepcional, pero ningún camino de fallo debe ignorarse o filtrar información sensible.</li><li>No ocultes un fallo devolviendo éxito o resultados ambiguos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>No encontrar un registro puede ser un resultado esperado; una conexión caída puede requerir un manejo de error diferente. El primero puede devolver ausencia; el segundo requiere una respuesta controlada.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=68#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-69" data-module="6" aria-labelledby="slide-title-69" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 9 DE 10</p><h2 id="slide-title-69" tabindex="-1">Fallos de autorización</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La política debe fallar de forma segura y dejar evidencia útil, sin filtrar detalles. La incertidumbre no debe conceder acceso.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Deniega de forma controlada cuando la autorización falla y registra la información necesaria para investigar.</li><li>Fallar de forma segura incluye no revelar información interna.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Si no es posible verificar un permiso, continuar la operación puede conceder acceso sin una decisión válida. El cliente recibe una denegación y el evento queda registrado.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=69#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-70" data-module="6" aria-labelledby="slide-title-70" hidden>
+          <header class="lesson-head"><p class="kicker">Salidas, errores y logs · CONCEPTO 10 DE 10</p><h2 id="slide-title-70" tabindex="-1">Defensas complementarias contra XSS</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Ninguna capa sustituye la codificación correcta, pero varias reducen impacto y probabilidad. Las defensas cubren vías e impactos distintos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Las capas complementarias reducen riesgos, pero no convierten una salida HTML insegura en una implementación correcta.</li><li>Mantén codificación, sanitización y políticas como controles complementarios verificados.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una CSP puede limitar ciertos scripts mientras la codificación contextual evita interpretar datos como código. Si aparece un defecto, otras capas pueden limitar su explotación.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=70#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-71" data-module="7" aria-labelledby="slide-title-71" hidden>
+          <header class="lesson-head"><span id="modulo-8" class="module-anchor" aria-hidden="true"></span><p class="kicker">Verificación y pruebas · CONCEPTO 1 DE 10</p><h2 id="slide-title-71" tabindex="-1">Análisis estático: SAST</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>SAST analiza artefactos estáticos y puede integrarse temprano en CI. Analiza patrones sin ejecutar el sistema.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Revisa los hallazgos con contexto: una alerta no demuestra por sí sola una explotación y la ausencia de alertas no prueba seguridad.</li><li>Combina herramientas con revisión de lógica y pruebas dinámicas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un análisis estático puede señalar concatenaciones peligrosas o accesos inseguros a memoria antes de desplegar la aplicación. El equipo revisa la ubicación y confirma si la entrada es controlable.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>Verificar seguridad consiste en buscar evidencia de que los controles funcionan y explorar dónde pueden fallar. Aquí se comparan SAST, DAST, revisión manual, fuzzing, cobertura y sanitizadores de memoria. También se explica cómo conservar pruebas de regresión, preparar hallazgos reproducibles y respetar el alcance de una investigación autorizada.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Comprender qué observa cada técnica y cuáles son sus límites.</li><li>Reproducir fallos y conservar pruebas que eviten regresiones.</li><li>Combinar herramientas y revisión humana con alcance definido.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=71#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-72" data-module="7" aria-labelledby="slide-title-72" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 2 DE 10</p><h2 id="slide-title-72" tabindex="-1">Análisis dinámico: DAST</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>DAST detecta problemas que aparecen en el comportamiento desplegado. Observa el comportamiento de una aplicación ejecutándose.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La cobertura depende de las rutas y estados ejercitados, incluyendo autenticación y distintos permisos.</li><li>Una ruta no explorada puede mantener defectos sin detectar.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una prueba dinámica envía peticiones al servicio desplegado y observa sus respuestas sin necesitar todo su código fuente. Prueba sesiones distintas para detectar accesos que deberían estar bloqueados.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=72#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-73" data-module="7" aria-labelledby="slide-title-73" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 3 DE 10</p><h2 id="slide-title-73" tabindex="-1">Pruebas de regresión</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Una regresión ocurre cuando una modificación rompe una propiedad previamente satisfecha. Protege correcciones frente a modificaciones posteriores.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Una prueba de regresión debe verificar la propiedad que falló y evitar que el defecto reaparezca.</li><li>Incluye el escenario original y variantes relevantes del defecto.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Tras corregir un acceso indebido, conserva una prueba que vuelva a intentar esa operación en cada cambio posterior. Si alguien elimina el control, esa prueba debe volver a fallar.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=73#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-74" data-module="7" aria-labelledby="slide-title-74" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 4 DE 10</p><h2 id="slide-title-74" tabindex="-1">Fuzzing</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Fuzzing explora casos que quizá no fueron previstos por las pruebas tradicionales. Explora combinaciones no anticipadas manualmente.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Combina exploración de entradas con detección de fallos y conserva los casos que permiten reproducirlos.</li><li>Reproducir y minimizar el caso facilita encontrar su causa.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un fuzzer modifica archivos de entrada para buscar cierres inesperados, errores de memoria o comportamientos anómalos. Una entrada que provoca un cierre se conserva para investigar.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=74#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-75" data-module="7" aria-labelledby="slide-title-75" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 5 DE 10</p><h2 id="slide-title-75" tabindex="-1">Cobertura de pruebas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Alta cobertura no garantiza seguridad, pero ayuda a detectar zonas sin ejercitar. Mide ejecución, no calidad de las comprobaciones.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La cobertura orienta la búsqueda de zonas sin probar; no mide directamente la seguridad del sistema.</li><li>Comprueba condiciones, límites y resultados además de líneas ejecutadas.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Ejecutar una línea no demuestra que se hayan probado entradas inválidas o todas sus decisiones de autorización. Dos valores pueden recorrer la misma línea y producir riesgos distintos.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=75#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-76" data-module="7" aria-labelledby="slide-title-76" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 6 DE 10</p><h2 id="slide-title-76" tabindex="-1">AddressSanitizer</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Sanitizadores como AddressSanitizer ayudan a encontrar accesos fuera de límites y use-after-free. Detecta accesos inválidos durante ejecuciones instrumentadas.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El detector necesita que se ejecute el camino afectado: combina instrumentación con pruebas que lo ejerciten.</li><li>Instrumentar no reemplaza probar entradas que alcancen caminos vulnerables.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una ejecución instrumentada con AddressSanitizer puede detectar un acceso fuera de límites durante una prueba. El reporte señala la operación y ayuda a reconstruir el acceso inválido.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=76#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-77" data-module="7" aria-labelledby="slide-title-77" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 7 DE 10</p><h2 id="slide-title-77" tabindex="-1">Revisión manual</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La revisión humana encuentra problemas de diseño y lógica que una herramienta puede no comprender. El contexto revela decisiones lógicamente inseguras.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Busca supuestos de confianza y reglas de negocio, además de patrones técnicos conocidos.</li><li>Pregunta qué suposiciones dejarían de ser ciertas bajo un ataque.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una revisión humana puede detectar que un usuario accede a pedidos ajenos aunque el código no tenga errores de sintaxis. La revisión puede exigir comprobar el dueño en cada consulta.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=77#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-78" data-module="7" aria-labelledby="slide-title-78" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 8 DE 10</p><h2 id="slide-title-78" tabindex="-1">Semillas de fuzzing</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Buenas semillas ayudan a llegar a estados y rutas más profundas. Permite comenzar exploraciones con entradas representativas.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Diversificar semillas puede ampliar los estados explorados; conserva formatos relevantes para el objetivo.</li><li>Incluye semillas representativas y casos límite del formato probado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un archivo válido inicial ayuda a un fuzzer a alcanzar partes del parser que no se exploran con datos totalmente arbitrarios. Las mutaciones pueden mantener suficiente estructura para avanzar dentro del parser.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=78#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-79" data-module="7" aria-labelledby="slide-title-79" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 9 DE 10</p><h2 id="slide-title-79" tabindex="-1">Hallazgos reproducibles</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La reproducibilidad acelera la corrección y reduce falsos positivos. La evidencia permite comprobar y corregir defectos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Incluye evidencia suficiente para repetir el fallo sin exponer credenciales ni datos reales innecesarios.</li><li>Distingue claramente el resultado esperado del resultado realmente observado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un reporte útil incluye la versión afectada, la entrada exacta, los pasos y el resultado observado. Otra persona debería poder repetirlo sin adivinar pasos importantes.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=79#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-80" data-module="7" aria-labelledby="slide-title-80" hidden>
+          <header class="lesson-head"><p class="kicker">Verificación y pruebas · CONCEPTO 10 DE 10</p><h2 id="slide-title-80" tabindex="-1">Alcance de un bug bounty</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La investigación debe ser autorizada y seguir reglas claras para reducir daño. La autorización delimita la investigación permitida.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>El alcance y las reglas definen qué pruebas están autorizadas y cómo comunicar los hallazgos.</li><li>Comunica hallazgos por el canal y proceso previamente definidos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un programa puede permitir pruebas en una API concreta, pero excluir infraestructura ajena o acciones que interrumpan el servicio. El investigador confirma esos límites antes de enviar pruebas al servicio.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=80#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-81" data-module="8" aria-labelledby="slide-title-81" hidden>
+          <header class="lesson-head"><span id="modulo-9" class="module-anchor" aria-hidden="true"></span><p class="kicker">Threat Modeling · CONCEPTO 1 DE 10</p><h2 id="slide-title-81" tabindex="-1">Procesos en un DFD</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Los DFD modelan movimiento y transformación de información, no solo infraestructura. Representa operaciones sobre datos en movimiento.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Proceso, entidad externa, almacén y flujo son elementos diferentes: identifica qué hace cada uno con la información.</li><li>No confundas un proceso lógico con un equipo físico.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>En un DFD, “validar pedido” puede ser un proceso que recibe datos de una entidad y consulta un almacén. También indica qué datos salen y qué almacenes se consultan.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>El modelado de amenazas organiza preguntas sobre datos, confianza y posibles daños antes de que se conviertan en incidentes. Este módulo presenta procesos, flujos, almacenes y fronteras de confianza en un DFD, y utiliza STRIDE para distinguir familias de amenazas. El resultado esperado es una lista priorizada de riesgos, mitigaciones, responsables y verificaciones.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Representar flujos y reconocer cruces de fronteras de confianza.</li><li>Distinguir categorías STRIDE y las propiedades que afectan.</li><li>Convertir el análisis en mitigaciones y pruebas concretas.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=81#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-82" data-module="8" aria-labelledby="slide-title-82" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 2 DE 10</p><h2 id="slide-title-82" tabindex="-1">Fronteras de confianza</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Cada cruce requiere considerar autenticación, validación y controles apropiados. La confianza no se transfiere automáticamente.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un dato que atraviesa una frontera necesita controles acordes con el nuevo contexto; su procedencia importa.</li><li>Revisa cada cruce y no únicamente el perímetro externo.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Al pasar una entrada desde un navegador al servidor se cruza un límite con distintas suposiciones de confianza. El servidor valida lo recibido antes de usarlo en una operación.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=82#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-83" data-module="8" aria-labelledby="slide-title-83" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 3 DE 10</p><h2 id="slide-title-83" tabindex="-1">STRIDE: suplantación</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>STRIDE agrupa amenazas: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service y Elevation of Privilege. La identidad presentada no corresponde al actor.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Relaciona la suplantación con autenticación y verificación del origen; no la confundas con manipulación de datos.</li><li>Relaciona cada amenaza con la propiedad que intenta vulnerar.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Utilizar una identidad robada para hacerse pasar por otra persona corresponde a spoofing. Un servicio puede exigir una prueba de identidad verificable.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=83#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-84" data-module="8" aria-labelledby="slide-title-84" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 4 DE 10</p><h2 id="slide-title-84" tabindex="-1">STRIDE: manipulación</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Tampering es una alteración no autorizada de datos o código. La modificación compromete contenido o comportamiento esperado.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Integridad, autorización y detección de cambios ayudan a tratar la manipulación.</li><li>La protección debe alcanzar datos almacenados y datos en tránsito.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Modificar un pedido o alterar un binario sin autorización corresponde a tampering. Comparar evidencia de integridad ayuda a descubrir modificaciones no esperadas.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=84#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-85" data-module="8" aria-labelledby="slide-title-85" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 5 DE 10</p><h2 id="slide-title-85" tabindex="-1">STRIDE: repudio</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Controles como auditoría confiable y firmas ayudan a abordar el repudio. Sin evidencia resulta difícil atribuir acciones.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Auditoría protegida y mecanismos de firma pueden aportar evidencia, según cómo se gestione la confianza.</li><li>Protege también el acceso y la integridad de la auditoría.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una persona niega haber aprobado una operación y el sistema carece de evidencia confiable que permita investigarla. Una aprobación registrada de forma protegida ayuda a reconstruir lo ocurrido.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=85#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-86" data-module="8" aria-labelledby="slide-title-86" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 6 DE 10</p><h2 id="slide-title-86" tabindex="-1">Elevación de privilegios</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Puede ser horizontal o vertical según el nivel de privilegio obtenido. Otorga capacidades fuera del ámbito autorizado.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Distingue escalada vertical de acceso horizontal indebido y verifica ambos tipos de autorización.</li><li>Comprueba límites entre roles y separación entre usuarios iguales.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una cuenta puede obtener funciones administrativas; también puede intentar acceder a recursos de otra cuenta del mismo nivel. Cambiar un identificador puede permitir consultar recursos de otra cuenta.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=86#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-87" data-module="8" aria-labelledby="slide-title-87" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 7 DE 10</p><h2 id="slide-title-87" tabindex="-1">Priorización de amenazas</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La priorización convierte el modelado en decisiones accionables. El esfuerzo debe corresponder al riesgo.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Prioriza con el impacto, la probabilidad y los controles viables; documenta también los supuestos.</li><li>Actualiza prioridades si cambian el sistema o sus supuestos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un flujo de pagos crítico puede merecer atención antes que una amenaza poco probable sobre una función secundaria. El equipo selecciona mitigaciones que reduzcan ese escenario de mayor impacto.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=87#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-88" data-module="8" aria-labelledby="slide-title-88" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 8 DE 10</p><h2 id="slide-title-88" tabindex="-1">Flujos de datos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Un diagrama simple ayuda a descubrir puntos de entrada y datos sensibles. Expone puntos que necesitan análisis de confianza.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La utilidad del DFD está en permitir preguntas sobre los datos y controles, no en su complejidad visual.</li><li>Mantén el diagrama coherente con el sistema que realmente existe.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un diagrama revela dónde llegan datos externos, dónde se almacenan secretos y qué comunicaciones cruzan límites de confianza. Un flujo olvidado puede revelar una vía de entrada no protegida.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=88#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-89" data-module="8" aria-labelledby="slide-title-89" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 9 DE 10</p><h2 id="slide-title-89" tabindex="-1">Denegación de servicio</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>DoS busca degradar o impedir que un servicio esté disponible. Impedir acceso oportuno afecta la disponibilidad.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Evalúa límites de recursos y recuperación; la disponibilidad también puede verse afectada por entradas válidas pero abusivas.</li><li>Considera agotamiento de conexiones, memoria, CPU y almacenamiento disponible.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Muchas solicitudes costosas pueden consumir los recursos disponibles e impedir el acceso de usuarios legítimos. Limitar costes por petición puede reducir el impacto de ese abuso.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=89#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-90" data-module="8" aria-labelledby="slide-title-90" hidden>
+          <header class="lesson-head"><p class="kicker">Threat Modeling · CONCEPTO 10 DE 10</p><h2 id="slide-title-90" tabindex="-1">Resultados de un threat model</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>El resultado debe conectar riesgos con controles y responsables. Relaciona riesgos, mitigaciones y pruebas de cumplimiento.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un modelo útil produce decisiones y verificaciones; el diagrama es un medio para llegar a ellas.</li><li>Revisa el modelo cuando cambian flujos, componentes o privilegios.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una amenaza identificada puede vincularse con una mitigación, un responsable y una prueba que confirme su funcionamiento. La prueba debe demostrar que el escenario queda bloqueado o limitado.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=90#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-91" data-module="9" aria-labelledby="slide-title-91" hidden>
+          <header class="lesson-head"><span id="modulo-10" class="module-anchor" aria-hidden="true"></span><p class="kicker">Criptografía y examen final · CONCEPTO 1 DE 10</p><h2 id="slide-title-91" tabindex="-1">Hashes criptográficos</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Las funciones hash no son cifrado; buscan resistencia a preimagen y colisiones según el uso. La resistencia depende de la propiedad evaluada.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Un hash no cifra ni autentica por sí solo; distingue preimagen, segunda preimagen y colisiones.</li><li>Para autenticar, necesitas un mecanismo adicional y confianza adecuada.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un resumen permite comparar el contenido recibido con el esperado; su fiabilidad depende del algoritmo y de la referencia de confianza. Un hash publicado por un atacante no acredita el contenido legítimo.</p>
+              <details class="lesson-module-context"><summary>Contexto de este módulo</summary><p>La criptografía aporta propiedades específicas cuando sus algoritmos, parámetros y claves se usan correctamente. Este módulo distingue hashes, cifrado simétrico y asimétrico, firmas y aleatoriedad criptográfica; también revisa AES y gestión de claves. El cierre conecta estos conceptos con divulgación coordinada y despliegues verificables, monitoreados y recuperables.</p><div class="docs-goals"><h3>Al terminar este módulo podrás</h3><ul><li>Diferenciar confidencialidad, integridad, firma y funciones hash.</li><li>Evaluar parámetros, entropía y ciclo de vida de las claves.</li><li>Mantener las garantías de seguridad durante la entrega y operación.</li></ul></div></details>
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=91#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-92" data-module="9" aria-labelledby="slide-title-92" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 2 DE 10</p><h2 id="slide-title-92" tabindex="-1">Limitaciones de MD5</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>MD5 no es adecuado para integridad adversarial o firmas modernas. Las colisiones comprometen la distinción entre contenidos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>No bases integridad adversarial ni firmas en MD5; revisa el algoritmo y el protocolo completos.</li><li>La idoneidad depende del uso y del adversario considerado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un atacante que logra dos archivos con el mismo MD5 puede engañar un control que dependa de distinguirlos por ese resumen. Ambos archivos pueden pasar una comparación basada únicamente en ese MD5.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=92#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-93" data-module="9" aria-labelledby="slide-title-93" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 3 DE 10</p><h2 id="slide-title-93" tabindex="-1">Cifrado simétrico y asimétrico</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Cada modelo resuelve necesidades distintas de confidencialidad, intercambio y firma. Las relaciones entre claves permiten operaciones distintas.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Elige el mecanismo según la operación: cifrado, intercambio de claves y firma tienen objetivos diferentes.</li><li>No intercambies los conceptos de firma y cifrado asimétrico.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Dos partes pueden compartir una clave para cifrado simétrico; una firma asimétrica utiliza claves privadas y públicas relacionadas. La clave privada firma y la pública permite verificar esa firma.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=93#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-94" data-module="9" aria-labelledby="slide-title-94" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 4 DE 10</p><h2 id="slide-title-94" tabindex="-1">AES</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>AES se usa ampliamente para cifrado simétrico cuando se emplea con un modo seguro. Procesa bloques dentro de un esquema criptográfico.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Nombrar un algoritmo robusto no basta: el modo, la autenticación y la gestión de parámetros también importan.</li><li>Reutilizar parámetros indebidamente puede debilitar un esquema aparentemente sólido.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>AES puede formar parte de un esquema de cifrado que también define un modo de operación y su gestión de nonces o IV. Ese esquema debe detectar modificaciones además de ocultar el contenido.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=94#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-95" data-module="9" aria-labelledby="slide-title-95" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 5 DE 10</p><h2 id="slide-title-95" tabindex="-1">Tamaño de una clave</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Bits de clave no equivalen a bytes ni garantizan por sí solos una implementación correcta. Expresa posibilidades, no seguridad de implementación.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La entropía real, la protección de la clave y la implementación afectan la seguridad más allá del número de bits.</li><li>Genera claves con suficiente entropía y protégelas durante su vida.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Una clave de 256 bits ocupa 32 bytes; su tamaño describe el espacio ideal, no una cantidad de archivos cifrables. Una clave predecible reduce mucho ese espacio efectivo de búsqueda.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=95#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-96" data-module="9" aria-labelledby="slide-title-96" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 6 DE 10</p><h2 id="slide-title-96" tabindex="-1">Firmas digitales</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La firma se verifica con una clave pública y no sustituye el cifrado si se necesita secreto. Vincula contenido con una clave de firma.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Verifica también a quién pertenece la clave y su confianza; una firma no oculta el mensaje.</li><li>Confirma el firmante esperado y qué contenido quedó realmente firmado.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un receptor verifica una firma con la clave pública correspondiente y detecta cambios en el contenido firmado. Si cambia el documento, la verificación ya no debería ser válida.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=96#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-97" data-module="9" aria-labelledby="slide-title-97" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 7 DE 10</p><h2 id="slide-title-97" tabindex="-1">Aleatoriedad criptográfica</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Debe producir valores impredecibles frente a un atacante con información parcial. La impredecibilidad protege futuros valores secretos.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Usa una fuente de aleatoriedad criptográfica para secretos; Math.random no está diseñado para ese propósito.</li><li>Aleatoriedad para interfaces y aleatoriedad para secretos tienen requisitos distintos.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un token de recuperación debe resultar impredecible para quien conoce tokens anteriores o parte del estado del sistema. Un atacante no debería deducir el siguiente token a partir del anterior.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=97#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-98" data-module="9" aria-labelledby="slide-title-98" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 8 DE 10</p><h2 id="slide-title-98" tabindex="-1">Gestión de claves</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Protección, ciclo de vida, rotación y acceso a claves son parte del diseño criptográfico. La protección depende de claves confiables.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Controla generación, almacenamiento, acceso, rotación y revocación; no evalúes la criptografía solo por el algoritmo.</li><li>Planifica respuesta a filtraciones antes de que suceda una exposición.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Aunque el cifrado sea sólido, una clave publicada en el repositorio puede permitir acceso a los datos protegidos. Revocar la clave expuesta y reemplazarla limita su uso posterior.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=98#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-99" data-module="9" aria-labelledby="slide-title-99" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 9 DE 10</p><h2 id="slide-title-99" tabindex="-1">Divulgación coordinada</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>Busca equilibrar transparencia, seguridad de usuarios y capacidad de respuesta del proveedor. La coordinación reduce exposición mientras se corrige.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>Documenta el impacto y sigue el proceso de comunicación definido para reducir exposición durante la respuesta.</li><li>Comparte evidencia suficiente evitando datos que faciliten daños innecesarios.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un investigador comunica el hallazgo por el canal acordado y coordina la publicación de detalles con la corrección. La coordinación permite preparar parches y comunicar mitigaciones a los usuarios.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=99#practicePanel">Practicar este concepto →</a>
+        </article>
+        <article class="lesson-slide" id="concepto-100" data-module="9" aria-labelledby="slide-title-100" hidden>
+          <header class="lesson-head"><p class="kicker">Criptografía y examen final · CONCEPTO 10 DE 10</p><h2 id="slide-title-100" tabindex="-1">Despliegues seguros</h2></header>
+          <div class="lesson-core">
+            <section class="lesson-meaning"><h3><span aria-hidden="true">01</span> Qué significa</h3><p>La seguridad debe continuar en la entrega y operación, no terminar al compilar. La operación puede debilitar garantías del desarrollo.</p></section>
+            <section class="lesson-remember"><h3><span aria-hidden="true">02</span> Qué debes recordar</h3><ul><li>La seguridad continúa en la operación: una construcción segura puede desplegarse de forma insegura.</li><li>Verifica artefactos y configuración antes y después del despliegue.</li></ul></section>
+          </div>
+          <details class="lesson-more"><summary>Ver ejemplo y profundizar</summary>
+            <div class="lesson-detail-content">
+              <h3>Ejemplo práctico</h3><p>Un release puede incluir artefactos verificados, configuración revisada, monitoreo y un plan probado de reversión. Un cambio defectuoso debe poder revertirse sin improvisar todo el procedimiento.</p>
+
+            </div>
+          </details>
+          <a class="docs-practice-link" href="index.html?question=100#practicePanel">Practicar este concepto →</a>
+        </article>
+      </section>
+      <nav class="reading-controls" aria-label="Navegación de diapositivas"><button class="reading-prev" id="readingPrev" type="button" disabled>← Anterior</button><span id="readingPosition">1 / 100</span><button class="primary-btn" id="readingNext" type="button">Siguiente →</button></nav>
+      <div class="reading-extras">
+        <details class="reading-reference" id="como-estudiar"><summary>Cómo estudiar</summary><section class="docs-how" aria-labelledby="como-estudiar-titulo">
+        <p class="kicker">TU RUTA DE APRENDIZAJE</p><h2 id="como-estudiar-titulo">Del concepto a la práctica</h2>
+        <ol class="docs-steps"><li><b>Lee y comprende.</b> Revisa la idea central y su explicación. Relaciona el control con el riesgo o la propiedad que protege.</li><li><b>Aplica y recuerda.</b> Analiza el ejemplo, identifica qué podría fallar y explica la idea clave con tus propias palabras.</li><li><b>Comprueba y repasa.</b> Haz la prueba del concepto o módulo. Si fallas, vuelve al apartado correspondiente y compara la retroalimentación.</li></ol>
+        <p>Los temas siguen el mismo orden que el cuestionario. Puedes leerlos en secuencia o entrar directamente desde el índice. Las pruebas guardan tu progreso en este navegador y mezclan las opciones de respuesta.</p>
+      </section></details>
+      </div>
+      <noscript><style>.lesson-slide[hidden]{display:block!important}.reading-controls{display:none}</style><p>La navegación por diapositivas requiere JavaScript. Puedes leer todos los conceptos a continuación.</p></noscript>
+      <footer>Developing Secure Software · LFD121 <span>Comprende. Recuerda. Avanza.</span></footer>
+    </main>
+  </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Preparación para la certificación Developing Secure Software LFD121." />
+  <title>LFD121 · Secure Software Study Lab</title>
+  <link rel="stylesheet" href="styles.css?v=10" />
+</head>
+<body class="quiz-page">
+  <a class="skip-link" href="#practicePanel">Saltar a la prueba</a>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#top"><span class="brand-mark">L</span><span><strong>LFD121</strong><small>Secure Software</small></span></a>
+      <nav class="site-nav" aria-label="Secciones del sitio">
+        <a href="docs.html">Documentación</a>
+        <a href="index.html" aria-current="page">Pruebas</a>
+        <a href="glosario.html">Glosario</a>
+      </nav>
+      <div class="sidebar-foot"><span class="status-dot"></span> Progreso guardado localmente</div>
+    </aside>
+
+    <main class="main" id="top">
+      <header class="topbar"><button class="menu-btn" id="menuBtn" aria-label="Abrir menú">☰</button><span class="eyebrow">LFD121 / LABORATORIO DE PRÁCTICA</span><button class="reset-link" id="resetBtn">Reiniciar progreso</button></header>
+      <section class="practice-intro" aria-labelledby="practiceTitle">
+        <div><p class="kicker">PON A PRUEBA LO QUE APRENDISTE</p><h1 id="practiceTitle">Practica. Comprende. Mejora.</h1><p>Una pregunta a la vez, con explicaciones y ejemplos prácticos.</p></div>
+        <div class="practice-intro-actions"><button class="primary-btn" id="startBtn" type="button">Comenzar práctica →</button><a class="docs-text-link" href="docs.html">¿Primero estudiar? Leer diapositivas</a></div>
+      </section>
+      <section class="stats" aria-label="Resumen de progreso"><div><span id="answeredStat">0</span><small>RESPONDIDAS</small></div><div><span id="scoreStat">—</span><small>PRECISIÓN</small></div><div><span>10</span><small>MÓDULOS</small></div><div><span>100</span><small>PREGUNTAS</small></div></section>
+
+      <section class="practice-panel" id="practicePanel">
+        <div class="section-head"><div><p class="kicker">TU PRÁCTICA</p><h2 id="quizTitle">Práctica rápida</h2></div><div class="quiz-meta"><span id="questionCounter">Pregunta 1 de 100</span><div class="progress"><i id="quizProgress"></i></div></div></div>
+        <div class="practice-layout">
+          <div class="quiz-card"><div class="quiz-top"><span class="pill" id="quizDay">DÍA 1 · FUNDAMENTOS</span><span class="difficulty" id="quizDifficulty">INTERMEDIO</span></div><h3 id="questionText"></h3><div class="options" id="options"></div><div class="quiz-actions"><button class="ghost-btn" id="prevBtn">← Anterior</button><button class="primary-btn small" id="nextBtn">Comprobar respuesta</button></div></div>
+          <aside class="explanation pending" id="explanation" aria-labelledby="feedbackHeading">
+            <p class="kicker">APRENDE CON CADA RESPUESTA</p>
+            <h3 id="feedbackHeading">Retroalimentación</h3>
+            <div id="feedbackContent" aria-live="polite" aria-atomic="true"></div>
+          </aside>
+        </div>
+      </section>
+      <details class="practice-modules">
+        <summary><span><strong>Practicar por tema</strong><small>Elige uno de los 10 módulos para ir a sus preguntas.</small></span><span class="module-toggle" aria-hidden="true">+</span></summary>
+        <section class="content-grid" aria-label="Módulos de práctica">
+          <div class="section-head"><h2>Tu ruta de preparación</h2><div class="view-toggle"><button class="active" data-view="cards">Tarjetas</button><button data-view="compact">Compacto</button></div></div>
+          <div class="day-grid" id="dayGrid"></div>
+        </section>
+      </details>
+      <section class="study-first" aria-label="Antes de hacer la prueba">
+        <div><p class="kicker">REFUERZA LO QUE APRENDISTE</p><h2>¿Necesitas repasar un concepto?</h2><p>Vuelve a las diapositivas para ver su significado, ejemplos y puntos clave.</p></div>
+        <a class="primary-btn" href="docs.html">Leer documentación →</a>
+      </section>
+      <footer>Developing Secure Software · LFD121 <span>Estudia con criterio. Implementa con intención.</span></footer>
+    </main>
+  </div>
+  <script src="app.js?v=9"></script>
+</body>
+</html>
